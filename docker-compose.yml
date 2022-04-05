@@ -8,8 +8,8 @@ services:
         - "443:443"
     restart: always
     environment:
-        DOMAINS:  "localhost -> http://invocactf:8000"
-        STAGE:  "local"
+        DOMAINS:  "invocactf.com"
+        STAGE:  "production"
         FORCE_RENEW:  "false"
     networks:
         - bridged
