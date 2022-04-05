@@ -1,6 +1,21 @@
 version: '2'
 
 services:
+  https-portal:
+    image:  steveltn/https-portal:1
+    ports:
+        - "80:80"
+        - "443:443"
+    restart: always
+    environment:
+        DOMAINS:  "localhost -> http://invocactf:8000"
+        STAGE:  "local"
+        FORCE_RENEW:  "false"
+    networks:
+        - bridged
+    depends_on:
+        - "ctfd"
+  
   ctfd:
     build: .
     user: root
